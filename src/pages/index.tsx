@@ -1,3 +1,10 @@
-const Home = () => <h1>Hello World</h1>
+import { ThemeToggle } from '../components'
+
+const Home = () => (
+  <>
+    <h1>Dark mode</h1>
+    <ThemeToggle />
+  </>
+)
 
 export default Home

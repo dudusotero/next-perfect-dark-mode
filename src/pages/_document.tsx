@@ -1,23 +1,14 @@
-import NextDocument, {
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript
-} from 'next/document'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+
+import { DarkModeScriptTag } from '../lib/dark-mode'
 
 class Document extends NextDocument {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await NextDocument.getInitialProps(ctx)
-
-    return initialProps
-  }
-
   render() {
     return (
-      <Html className="dark">
+      <Html>
         <Head />
         <body className="bg-white text-black dark:bg-black dark:text-white">
+          <DarkModeScriptTag />
           <Main />
           <NextScript />
         </body>
