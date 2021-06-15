@@ -9,6 +9,10 @@ export function ThemeToggle() {
     setTheme(value ? 'dark' : 'light')
   }
 
+  if (!selectedTheme) {
+    return null
+  }
+
   return (
     <Switch.Group>
       <div className="flex items-center">
