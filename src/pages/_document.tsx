@@ -1,6 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
-import { DarkModeScriptTag } from '../lib/dark-mode'
+import { ThemeScriptTag } from '../lib/theme'
 
 class Document extends NextDocument {
   render() {
@@ -8,7 +8,7 @@ class Document extends NextDocument {
       <Html>
         <Head />
         <body className="bg-white text-black dark:bg-black dark:text-white">
-          <DarkModeScriptTag />
+          <ThemeScriptTag />
           <Main />
           <NextScript />
         </body>

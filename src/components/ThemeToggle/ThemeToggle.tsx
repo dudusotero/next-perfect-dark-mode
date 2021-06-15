@@ -1,25 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useContext } from 'react'
+import { Switch } from '@headlessui/react'
 
-import { ThemeContext } from '../../lib/dark-mode'
+import { useTheme } from '../../hooks'
 
-export const ThemeToggle = () => {
-  const { colorMode, setColorMode }: any = useContext(ThemeContext)
+export function ThemeToggle() {
+  const { selectedTheme, setTheme } = useTheme()
 
-  if (!colorMode) {
-    return null
+  function handleChange(value: boolean) {
+    setTheme(value ? 'dark' : 'light')
   }
 
   return (
-    <label>
-      <input
-        type="checkbox"
-        checked={colorMode === 'dark'}
-        onChange={(ev) => {
-          setColorMode(ev.target.checked ? 'dark' : 'light')
-        }}
-      />
-      Dark
-    </label>
+    <Switch.Group>
+      <div className="flex items-center">
+        <Switch.Label className="sr-only">Dark mode</Switch.Label>
+        <Switch
+          checked={selectedTheme === 'dark'}
+          onChange={handleChange}
+          className={`${
+            selectedTheme === 'dark' ? 'bg-blue-400' : 'bg-gray-200'
+          } relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-blue-600`}
+        >
+          <span
+            className={`${
+              selectedTheme === 'dark' ? 'translate-x-6' : 'translate-x-1'
+            } inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
+          />
+        </Switch>
+      </div>
+    </Switch.Group>
   )
 }
