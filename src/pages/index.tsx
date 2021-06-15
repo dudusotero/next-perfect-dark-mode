@@ -1,10 +1,9 @@
 import { ThemeToggle } from '../components'
 
 const Home = () => (
-  <>
-    <h1>Dark mode</h1>
+  <main className="container m-auto p-4">
     <ThemeToggle />
-  </>
+  </main>
 )
 
 export default Home
